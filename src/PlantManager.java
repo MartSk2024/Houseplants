@@ -6,7 +6,7 @@ import java.util.*;
 import static java.util.logging.Level.parse;
 
 public class PlantManager {
-    private static final List<Plant> listOfPlants = new ArrayList<>();
+    private final List<Plant> listOfPlants = new ArrayList<>();
 
     public List<Plant> getListOfPlants() {
         return listOfPlants;
@@ -17,7 +17,7 @@ public class PlantManager {
     }
 
     public void addPlants(List<Plant> listOfPlants) {
-        PlantManager.listOfPlants.addAll(listOfPlants);
+        listOfPlants.addAll(listOfPlants);
     }
 
     public Plant getPlant(int index) {
@@ -65,7 +65,7 @@ public class PlantManager {
         }
     }
 
-    public static Plant parse(String line, int lineNumber, String delimiter) throws PlantException {
+    public Plant parse(String line, int lineNumber, String delimiter) throws PlantException {
         int numberOfItemsRequired = 5;
         String[] parts = line.split(delimiter);
         if (parts.length != numberOfItemsRequired) {

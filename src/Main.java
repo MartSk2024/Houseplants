@@ -3,8 +3,8 @@ import java.util.Collections;
 import java.util.Collection;
 
 public class Main {
-    private static final String FILENAME1 = "resources/kvetiny.txt";
-    private static final String FILENAME2 = "resources/kvetinyVypis.txt";
+    private static final String FILENAME_INPUT = "resources/kvetiny.txt";
+    private static final String FILENAME_OUTPUT = "resources/kvetinyVypis.txt";
     private static final String DELIMITER = "\t";
 
     public static void main(String[] args) throws PlantException {
@@ -18,7 +18,7 @@ public class Main {
 
     private static void readFile(PlantManager plantManager) {
         try {
-            plantManager.readFromFile(FILENAME1, DELIMITER);
+            plantManager.readFromFile(FILENAME_INPUT, DELIMITER);
             System.out.println("\nNačtení zvoleného souboru: vše v pořádku.");
         } catch (PlantException ex) {
             System.err.println("\nChyba při načtení souboru: "+ex.getMessage());
@@ -49,11 +49,11 @@ public class Main {
     }
 
     private static void writeFile(PlantManager plantManager) {
-        System.out.println("\nVýpis do zvoleného souboru: viz soubor "+FILENAME2);
+        System.out.println("\nVýpis do zvoleného souboru: viz soubor "+FILENAME_OUTPUT);
         try {
             System.out.println("\nNeseřazený seznam květin:");
             plantManager.getListOfPlantsOnScreen(DELIMITER);
-            plantManager.writeToFile(FILENAME2, DELIMITER);
+            plantManager.writeToFile(FILENAME_OUTPUT, DELIMITER);
         } catch (PlantException ex) {
             System.err.println("Chyba při zápisu do souboru: "+ex.getMessage());
         }
